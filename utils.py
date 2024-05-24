@@ -19,6 +19,10 @@ def parse_arguments():
     return parser.parse_args()
 
 
+def resize_to_match(image, mask):
+    return cv2.resize(mask, (image.shape[1], image.shape[0]))
+
+
 def save_image(output_dir, operation, image):
     output_path = os.path.join(output_dir, f"{operation}.jpg")
     cv2.imwrite(output_path, image)

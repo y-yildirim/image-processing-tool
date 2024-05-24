@@ -1,6 +1,4 @@
-import argparse
 import cv2
-import os
 from compression import compress_image
 from noise_reduction import reduce_noise
 from edge_detection import detect_edges
@@ -9,31 +7,7 @@ from segmentation import segment_image
 from thresholding import apply_threshold
 from morphology import apply_morphology
 from image_repair import repair_image
-
-
-def parse_arguments():
-    parser = argparse.ArgumentParser(description="Image Processing Tool")
-    parser.add_argument("input", type=str, help="Path to the input image")
-    parser.add_argument("output", type=str, help="Path to save the output image")
-    parser.add_argument("--compress", action="store_true", help="Compress the image")
-    parser.add_argument(
-        "--noise_reduce", action="store_true", help="Reduce noise in the image"
-    )
-    parser.add_argument("--edge_detect", action="store_true", help="Detect edges in the image")
-    parser.add_argument(
-        "--contrast", action="store_true", help="Correct contrast of the image"
-    )
-    parser.add_argument("--segment", action="store_true", help="Segment the image")
-    parser.add_argument(
-        "--threshold", action="store_true", help="Apply thresholding to the image"
-    )
-    parser.add_argument(
-        "--morphology",
-        action="store_true",
-        help="Apply morphological operations to the image",
-    )
-    parser.add_argument("--repair", action="store_true", help="Repair the image")
-    return parser.parse_args()
+from utils import parse_arguments, save_image
 
 
 def main():
@@ -41,24 +15,30 @@ def main():
     image = cv2.imread(args.input)
 
     if args.compress:
-        image = compress_image(image)
+        compressed_image = compress_image(image)
+        save_image(args.output_dir, "compress", compressed_image)
     if args.noise:
-        image = reduce_noise(image)
+        noise_reduced_image = reduce_noise(image)
+        save_image(args.output_dir, "noise_reduction", noise_reduced_image)
     if args.edge:
-        image = detect_edges(image)
+        edge_detected_image = detect_edges(image)
+        save_image(args.output_dir, "edge_detection", edge_detected_image)
     if args.contrast:
-        image = correct_contrast(image)
+        contrast_corrected_image = correct_contrast(image)
+        save_image(args.output_dir, "contrast_correction", contrast_corrected_image)
     if args.segment:
-        image = segment_image(image)
+        segmented_image = segment_image(image)
+        save_image(args.output_dir, "segmentation", segmented_image)
     if args.threshold:
-        image = apply_threshold(image)
+        thresholded_image = apply_threshold(image)
+        save_image(args.output_dir, "thresholding", thresholded_image)
     if args.morphology:
-        image = apply_morphology(image)
+        morphology_image = apply_morphology(image)
+        save_image(args.output_dir, "morphology", morphology_image)
     if args.repair:
-        image = repair_image(image)
-
-    cv2.imwrite(args.output, image)
-    print(f"Processed image saved at {args.output}")
+        mask = cv2.imread(args.mask, 0) if args.mask else None
+        repaired_image = repair_image(image, mask=mask)
+        save_image(args.output_dir, "repair", repaired_image)
 
 
 if __name__ == "__main__":

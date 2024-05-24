@@ -3,12 +3,6 @@ import cv2
 import os
 
 
-def save_image(output_dir, operation, image):
-    output_path = os.path.join(output_dir, f"{operation}.jpg")
-    cv2.imwrite(output_path, image)
-    print(f"{operation.capitalize()} image saved at {output_path}")
-
-
 def parse_arguments():
     parser = argparse.ArgumentParser(description="Image Processing Tool")
     parser.add_argument("input", type=str, help="Path to the input image")
@@ -34,3 +28,9 @@ def parse_arguments():
     )
     parser.add_argument("--repair", action="store_true", help="Repair the image")
     return parser.parse_args()
+
+
+def save_image(output_dir, operation, image):
+    output_path = os.path.join(output_dir, f"{operation}.jpg")
+    cv2.imwrite(output_path, image)
+    print(f"{operation.capitalize()} image saved at {output_path}")

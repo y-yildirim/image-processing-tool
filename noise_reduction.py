@@ -1,7 +1,7 @@
 import cv2
 
 
-def reduce_noise(image, method="gaussian", ksize=5):
+def reduce_noise(image, method="bilateral", ksize=15):
     if method == "gaussian":
         return cv2.GaussianBlur(image, (ksize, ksize), 0)
     elif method == "median":

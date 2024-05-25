@@ -74,6 +74,8 @@ def compress_image(image, quality=90):
     return image
 ```
 
+<img src="input_imgs/compress.jpg"  width=45%)> <img src="output_imgs/compress.jpg"  width=45%)>
+
 ### Noise Reduction
 
 **File**: `noise_reduction.py`
@@ -93,6 +95,8 @@ def reduce_noise(image, method='gaussian', ksize=5):
     else:
         raise ValueError("Unsupported noise reduction method")
 ```
+
+<img src="input_imgs/noise_reduction.jpg"  width=45%)> <img src="output_imgs/noise_reduction.jpg"  width=45%)>
 
 ### Edge Detection
 
@@ -115,6 +119,7 @@ def detect_edges(image, method='canny', low_threshold=50, high_threshold=150):
     else:
         raise ValueError("Unsupported edge detection method")
 ```
+<img src="input_imgs/edge_detection.jpeg"  width=45%)> <img src="output_imgs/edge_detection.jpg"  width=45%)>
 
 ### Contrast Correction
 
@@ -134,6 +139,7 @@ def correct_contrast(image, clip_limit=2.0, tile_grid_size=(8, 8)):
     limg = cv2.merge((cl, a, b))
     return cv2.cvtColor(limg, cv2.COLOR_LAB2BGR)
 ```
+<img src="input_imgs/contrast_correction.jpg"  width=45%)> <img src="output_imgs/contrast_correction.jpg"  width=45%)>
 
 ### Segmentation
 
@@ -154,6 +160,8 @@ def segment_image(image, k=2):
     res = center[label.flatten()]
     return res.reshape((image.shape))
 ```
+
+<img src="input_imgs/segmentation.jpg"  width=45%)> <img src="output_imgs/segmentation.jpg"  width=45%)>
 
 ### Thresholding
 
@@ -176,6 +184,7 @@ def apply_threshold(image, method='binary', thresh=127, maxval=255):
         raise ValueError("Unsupported thresholding method")
     return thresh_img
 ```
+<img src="input_imgs/threshold.jpg"  width=45%)> <img src="output_imgs/thresholding.jpg"  width=45%)>
 
 ### Morphology
 
@@ -199,6 +208,27 @@ def apply_morphology(image, operation='dilate', kernel_size=(5, 5)):
     else:
         raise ValueError("Unsupported morphological operation")
 ```
+
+<img src="input_imgs/morphology_dilate-erode.png"  width=45%)> 
+
+- **Dilation:**
+
+    <img src="output_imgs/morphology_dilate.jpg"  width=45%)>
+
+- **Erosion:**
+
+    <img src="output_imgs/morphology_erode.jpg"  width=45%)>
+
+<img src="input_imgs/morphology_open-close.png"  width=45%)>
+
+- **Opening:**
+
+    <img src="output_imgs/morphology_open.jpg"  width=45%)>    
+
+- **Closing:**
+
+    <img src="output_imgs/morphology_close.jpg"  width=45%)>
+
 
 ### Image Repair
 
@@ -228,6 +258,8 @@ def repair_image(image, method='inpaint', mask=None):
     else:
         raise ValueError("Unsupported repair method")
 ```
+
+<img src="input_imgs/repair.jpg"  width=32%)> <img src="input_imgs/mask_repair.jpg"  width=32%)>  <img src="output_imgs/repair.jpg"  width=32%)>
 
 ## Usage Instructions
 

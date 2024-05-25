@@ -28,6 +28,8 @@ The project is organized into the following files:
 
 ```
 image_processing_tool/
+├── input_imgs
+├── output_imgs
 ├── main.py
 ├── compression.py
 ├── noise_reduction.py

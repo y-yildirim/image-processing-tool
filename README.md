@@ -1,6 +1,6 @@
 # Image Processing Tool: A Comprehensive Command-Line Application
 
-This report provides an overview and detailed explanation of the final version of the Image Processing Tool, designed as a command-line application. The tool implements several essential image processing functionalities, including image compression, noise reduction, edge detection, contrast correction, segmentation, thresholding, morphological operations, and image repair.
+This report provides an overview and detailed explanation of the Image Processing Tool, designed as a command-line application. The tool implements several essential image processing functionalities, including image compression, noise reduction, edge detection, contrast correction, segmentation, thresholding, morphological operations, and image repair.
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -20,7 +20,7 @@ This report provides an overview and detailed explanation of the final version o
 
 ## Introduction
 
-This project aims to create a comprehensive image processing tool that can be run from the command line. The tool supports multiple image processing operations, each of which can be executed individually, and the results can be saved as separate output files. This document provides an in-depth look at the tool's structure, functionalities, and usage.
+This project aims to create a comprehensive image processing tool that can be run from the command line. The tool supports multiple image processing operations, each of which can be executed individually, and the results can be saved as separate output files. This report provides an in-depth look at the tool's structure, functionalities, and usage.
 
 ## Project Structure
 
@@ -362,4 +362,4 @@ def resize_to_match(image, mask):
 
 ## Conclusion
 
-This project provides a versatile and user-friendly command-line tool for performing various image processing operations. Each functionality is implemented in a modular fashion, allowing for easy maintenance and extension. The application can handle multiple operations in a single run and save the results to designated files, making it a valuable tool for anyone working with digital images.
+This project provides a versatile and user-friendly command-line tool for performing various image processing operations. Each functionality is implemented in a modular fashion, allowing for easy maintenance and extension.

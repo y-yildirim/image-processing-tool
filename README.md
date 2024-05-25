@@ -271,9 +271,7 @@ def repair_image(image, method='inpaint', mask=None):
 2. **Run the application**:
     ```sh
     python main.py input_image.jpg output_directory --compress --noise --edge --contrast --segment --threshold --morphology --repair --mask path_to_mask_image
-    ``
-
-`
+    ```
 
 ## Implementation Details
 

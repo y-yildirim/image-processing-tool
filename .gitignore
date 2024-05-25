@@ -22,5 +22,5 @@ build/
 Thumbs.db
 
 # Images
-input_imgs/
-output_imgs/
+# input_imgs/
+# output_imgs/

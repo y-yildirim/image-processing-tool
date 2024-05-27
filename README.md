@@ -244,9 +244,14 @@ import numpy as np
 from utils import resize_to_match
 
 def create_default_mask(image):
-    mask = np.zeros(image.shape[:2], dtype=np.uint8)
-    h, w = image.shape[:2]
-    mask[h//4:h//4*3, w//4:w//4*3] = 255
+    height, width = image.shape[0], image.shape[1]
+    mask = np.zeros((height, width), dtype=np.uint8)
+    for i in range(height):
+        for j in range(width):
+            if image[i, j].sum() > 0:
+                mask[i, j] = 0
+            else:
+                mask[i, j] = 255
     return mask
 
 def repair_image(image, method='inpaint', mask=None):
